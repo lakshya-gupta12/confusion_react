@@ -19,11 +19,18 @@ class Main extends Component {
   }
   
   render(){
+    const HomePage = () => {
+      return(
+        <Home />
+      )
+    }
     return (
       <div>
         <Header />
         <Switch>
-          <Route path="/home">
+          <Route path="/home" component={HomePage} />
+          <Route exact path="/menu" component={() => <Menu dishes={this.state.dishes} />} />
+          <Redirect to="/home" />
         </Switch>
        <Footer />
       </div>
