@@ -125,3 +125,23 @@
 
         return errors;
     }
+
+
+
+
+    
+export const initialState = {
+	dishes: DISHES,
+    comments: COMMENTS,
+    promotions: PROMOTIONS,
+    leaders: LEADERS
+};
+
+
+
+export const Reducer = (state = initialState, action) => {
+	return state;
+};
+
+
+    const errors = this.validate(this.state.firstname, this.state.lastname, this.state.telnum, this.state.email);
