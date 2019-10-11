@@ -27,8 +27,7 @@ import { Control, LocalForm, Errors } from 'react-redux-form';
 			}
 
 			 handleSubmit(values) {
-		        console.log("Current Comment is:" + JSON.stringify(values));
-		        alert("Current Comment is:" + JSON.stringify(values));
+		        this.props.addComment(this.props.dishId, values.rating, values.author, values.comment);
 		        
 		    }
 
@@ -93,7 +92,7 @@ import { Control, LocalForm, Errors } from 'react-redux-form';
 
 	}
 
-	function RenderComments({comments}) {
+	function RenderComments({comments, addComment, dishId}) {
 		if(comments == null) {
 			return(<div></div>)
 		}
@@ -120,7 +119,7 @@ import { Control, LocalForm, Errors } from 'react-redux-form';
 				<ul className="list-unstyled">
 					{cmnts}
 				</ul>
-				<CommentForm />
+				<CommentForm dishId={dishId} addComment={addComment}/>
 			</div>
 		)
 	}
@@ -152,7 +151,9 @@ import { Control, LocalForm, Errors } from 'react-redux-form';
 		}
 		else {
 			const dishItem = <RenderDish dish = {dish} />
-			const dishComments = <RenderComments comments = {props.comments} />
+			const dishComments = <RenderComments comments = {props.comments} 
+									addComment={props.addComment}
+									dishId={props.dish.id}/>
 			return(
 
 				<div className="container">
