@@ -145,3 +145,8 @@ export const Reducer = (state = initialState, action) => {
 
 
     const errors = this.validate(this.state.firstname, this.state.lastname, this.state.telnum, this.state.email);
+
+
+    setTimeout(() => {
+        dispatch(addDishes(DISHES));
+    }, 2000);
