@@ -150,3 +150,6 @@ export const Reducer = (state = initialState, action) => {
     setTimeout(() => {
         dispatch(addDishes(DISHES));
     }, 2000);
+
+
+    
